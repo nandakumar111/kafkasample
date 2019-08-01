@@ -1,2 +1,0 @@
-# kafkasample
-kafkasample
