@@ -1,4 +1,4 @@
-package com.nandakumar111.kafka.sample;
+package kafka.tutorial1;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;

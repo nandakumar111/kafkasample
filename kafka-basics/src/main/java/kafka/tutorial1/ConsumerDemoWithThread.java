@@ -1,4 +1,4 @@
-package com.nandakumar111.kafka.sample;
+package kafka.tutorial1;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -16,35 +16,6 @@ import java.util.concurrent.CountDownLatch;
 
 public class ConsumerDemoWithThread {
     public static void main(String[] args) throws Exception{
-//        Logger logger = LoggerFactory.getLogger(ConsumerDemoWithThread.class.getName());
-//        String bootstrapServers = "localhost:9092";
-//        String groupId = "check1_app_group4";
-//        String topic = "check1";
-//
-//        // create consumer config
-//        Properties properties = new Properties();
-//        properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-//        properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-//        properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-//        properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, groupId);
-//        properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-//
-//        // create consumer
-//        KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
-//
-//        // subscribe consumer to our topic(s)
-//        consumer.subscribe(Arrays.asList(topic));
-//
-//        //  poll for new data
-//        while(true){
-//            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
-//
-//            for(ConsumerRecord<String, String> record : records){
-//                logger.info("Key : " + record.key() + ", Value : " + record.value());
-//                logger.info("Partitions : " + record.partition() + ", Offset : " + record.offset());
-//                logger.info("Topic : " + record.topic());
-//            }
-//        }
         ConsumerDemoWithThread.run();
     }
     private ConsumerDemoWithThread(){

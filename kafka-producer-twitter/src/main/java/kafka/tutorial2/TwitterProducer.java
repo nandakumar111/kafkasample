@@ -1,4 +1,4 @@
-package com.nandakumar111.kafka.twitter;
+package kafka.tutorial2;
 
 import com.google.common.collect.Lists;
 import com.twitter.hbc.ClientBuilder;
@@ -33,7 +33,7 @@ public class TwitterProducer {
     private static String secret = "WNdeRJMCIfiLeY1oeQ5bDbMMxmbaTbkf1wcP6iWZ3q7Ja";
 
     // tweets
-    private static List<String> terms = Lists.newArrayList("kafka");
+    private static List<String> terms = Lists.newArrayList("cricket", "ashes", "australia", "england");
 
     private TwitterProducer(){
 
@@ -125,6 +125,11 @@ public class TwitterProducer {
         properties.setProperty(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
         properties.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "5");
         properties.setProperty(ProducerConfig.RETRIES_CONFIG, Integer.toString(Integer.MAX_VALUE));
+
+        // high throughput Producer (at the expense of a bit of latency and CPU usage)
+        properties.setProperty(ProducerConfig.BATCH_SIZE_CONFIG,Integer.toString(3*1024)); // 32KB batch size
+        properties.setProperty(ProducerConfig.LINGER_MS_CONFIG, "20");
+        properties.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
 
         return new KafkaProducer<>(properties);
     }
